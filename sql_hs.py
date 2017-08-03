@@ -8,11 +8,11 @@ os.environ['COLUMNS'] = "120"
 
 if __name__ == '__main__':
     child = pexpect.spawn('sudo su postgres')
-    child.setwinsize(1024,480)
+    child.setwinsize(640,480)
     child.expect('.*password[^:]+: $', timeout=1)
     child.sendline(password)
     child.expect('postgres.+$', timeout=1)
     child.sendline('psql')
     child.expect('postgres=# $', timeout=1)
-    child.sendline('\c fnsite')
-    child.interact()    
+    child.sendline('\c spotshare')
+    child.interact()

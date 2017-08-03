@@ -7,7 +7,7 @@ os.environ['LINES'] = "45"
 os.environ['COLUMNS'] = "120"
 
 if __name__ == '__main__':
-    child = pexpect.spawn('ssh fn')
+    child = pexpect.spawn('ssh skyweb')
     child.setwinsize(640,480)
     child.expect(':~\$', timeout=5)
     print child.before+child.after
@@ -20,5 +20,5 @@ if __name__ == '__main__':
     child.sendline('psql')
     child.expect('postgres=# $', timeout=3)
     print child.before+child.after
-    child.sendline('\c app')
+    child.sendline('\c skyweb_test')
     child.interact()    
