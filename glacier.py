@@ -16,7 +16,7 @@ if __name__ == '__main__':
             js['uploaded'] = []
         directory = sys.argv[1]
 
-        for i,f in enumerate(os.listdir(directory)):        
+        for i,f in enumerate(os.listdir(directory)):
             dirname = directory.replace('/', '')
             pair = u'{}/{}'.format(dirname,f)
             if pair in js['uploaded']:
@@ -25,7 +25,7 @@ if __name__ == '__main__':
             command = 'glacier-cmd upload --name {} {} {}'.format(pair, vault, pair)
             print command
             p = Popen(command, shell=True)
-            if p.wait() == 0:            
+            if p.wait() == 0:
                 js['uploaded'].append(pair)
                 config.seek(0)
                 config.write(json.dumps(js))
