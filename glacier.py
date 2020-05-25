@@ -7,7 +7,10 @@ import json
 
 
 if __name__ == '__main__':
-    """ ~/pexpect/glacier.py 105CANON/ """
+    """ 
+         source ~/amazon-glacier-cmd-interface/bin/activate
+        ~/pexpect/glacier.py 105CANON/ 
+    """
     with open('config.json','rw+') as config:
         src = config.read()
         js = json.loads(src)
